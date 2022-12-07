@@ -1,7 +1,8 @@
 import { Component, Fragment } from 'react';
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, redirect} from 'react-router-dom'
 import Login from './Login'
 import Home from './Home'
+import Nav from './Nav'
 import NotFound from './NotFound'
 import {handleInitialize} from '../actions/shared'
 import { connect } from 'react-redux';
@@ -16,11 +17,15 @@ class App extends Component {
   
   render () {
     return (
-      <Routes>
-        <Route path='/' exact element={<Home/>}></Route>
-        <Route path='/login' element={<Login />}></Route>
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+      <Fragment>
+        <Nav />
+
+        <Routes>
+          <Route path='/' exact element={<Home/>}></Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </Fragment>
     )
   }
 }

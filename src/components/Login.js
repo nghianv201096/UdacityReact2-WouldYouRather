@@ -1,30 +1,69 @@
 import { Component } from "react";
 import {connect} from 'react-redux'
+import {loginUser} from '../actions/authedUser'
+import logo from '../logo.svg';
+import {redirect} from 'react-router-dom';
 
 class Login extends Component {
-    handleLogin(authedUser) {
-        console.log('Login', authedUser)
+    constructor(props) {
+        super(props)
+        this.state = { 
+            authedUser: null,
+            toHome: false
+        }
+    }
+
+    handleChangeUser(value) {
+        this.setState({ authedUser: value})
+    }
+
+    handleLogin() {
+        const {dispatch} = this.props;
+        dispatch(loginUser(this.state.authedUser));
+        this.setState({
+            authedUser: this.props.defaultAuthedUser,
+            toHome: true
+        })
+    }
+
+    componentDidUpdate() {
+        const {defaultAuthedUser} = this.props;
+        if(!this.state.authedUser && defaultAuthedUser) {
+            this.setState({
+                authedUser: defaultAuthedUser
+            })
+        }
     }
 
     render() {
-        const users = this.props.users || {};
-        const authedUsers = Object.keys(users);
+        if(this.state.toHome === true) {
+            return redirect('/');
+        } 
+
+        const {users, authedUsers, defaultAuthedUser} = this.props;
 
         return (
-            <div className="m offset-2 col-8 card text-center mt-4">
+            <div className="card text-center login-form">
                 <div className="card-header">
-                    <div className="h2">Welcome to the Would You Rather App!</div>
+                    <div className="h3">Welcome to the Would You Rather App!</div>
                     <div>Please sign in to continue</div>
                 </div>
                 <div className="card-body">
-                    
-                    <div className="h2">Sign in</div>
 
-                    <select className="form-select" onChange={(e) => {this.handleLogin(e.target.value)}}>
-                        {
-                            authedUsers.map(authedUser => <option key={authedUser} value={authedUser}>{users[authedUser].name}</option>)
-                        }
-                    </select>
+                    <img src={logo} className="App-logo" alt="logo" />                
+                    <div className="h3 text-success">Sign in</div>
+
+                    {
+                        defaultAuthedUser && 
+                        <select className="form-select" onChange={(e) => this.handleChangeUser(e.target.value)}>
+                            {
+                                authedUsers.map(authedUser => <option key={authedUser} value={authedUser}>{users[authedUser].name}</option>)
+                            }
+                        </select>
+                    }
+                </div>
+                <div className="card-footer">
+                    <button className="btn btn-lg btn-success w-100" onClick={(e) => {this.handleLogin()}}>Sign in</button>
                 </div>
             </div>
         )
@@ -32,8 +71,13 @@ class Login extends Component {
 }
 
 function mapStateToProps({users}) {
+    const authedUsers = Object.keys(users);
+    const defaultAuthedUser = authedUsers.length ? authedUsers[0] : null;
+
     return {
-        users
+        users,
+        authedUsers,
+        defaultAuthedUser
     };
 }
 
