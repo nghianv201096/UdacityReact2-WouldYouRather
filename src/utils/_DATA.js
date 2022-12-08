@@ -2,7 +2,7 @@ let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'https://www.w3schools.com/howto/img_avatar2.png',
+    avatarURL: 'https://img.freepik.com/free-photo/cheerful-beautiful-young-asian-woman-feeling-happy-smiling-camera-while-traveling-chinatown-beijing-china_7861-1341.jpg?w=1380&t=st=1670485270~exp=1670485870~hmac=109daf203ec223877bcd965dfebd37f9d328dae2d27ff54b07d29f3ee63f977c',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +14,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: 'https://www.w3schools.com/howto/img_avatar2.png',
+    avatarURL: 'https://bingepost.com/wp-content/uploads/2020/09/02fe67bf70045487/hollywood-actors-in-their-30s-115246-2-730x1004.webp',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: 'https://www.w3schools.com/howto/img_avatar2.png',
+    avatarURL: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-459792838-1496268209.jpg?crop=0.997xw:0.757xh;0.00326xw,0.229xh&resize=980:*',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

@@ -1,8 +1,8 @@
 import { Component } from "react";
 import {connect} from 'react-redux'
+import { Redirect } from "react-router-dom";
 import {loginUser} from '../actions/authedUser'
 import logo from '../logo.svg';
-import {redirect} from 'react-router-dom';
 
 class Login extends Component {
     constructor(props) {
@@ -37,7 +37,7 @@ class Login extends Component {
 
     render() {
         if(this.state.toHome === true) {
-            return redirect('/');
+            return <Redirect to='/questions'></Redirect>;
         } 
 
         const {users, authedUsers, defaultAuthedUser} = this.props;
