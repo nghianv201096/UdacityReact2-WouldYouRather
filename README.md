@@ -1,16 +1,3 @@
-# create new app
-```
-$npx create-react-app would-you-rather
-```
-
-# install packages
-* redux
-* react-redux
-* redux-thunk
-* react-icons
-* react-redux-loading
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
