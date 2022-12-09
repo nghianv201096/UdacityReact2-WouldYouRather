@@ -18,10 +18,10 @@ const Layout = (props) => {
                                 <NavLink activeClassName='active' className="nav-link" to='/'>Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeClassName='active' className="nav-link" to='/questions/new'>New Question</NavLink>
+                                <NavLink activeClassName='active' className="nav-link" to='/add'>New Question</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeClassName='active' className="nav-link" to='/leader-board'>Leader Board</NavLink>
+                                <NavLink activeClassName='active' className="nav-link" to='/leaderboard'>Leader Board</NavLink>
                             </li>
                         </ul>
                         
