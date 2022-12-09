@@ -8,7 +8,7 @@ class Login extends Component {
     constructor(props) {
         super(props)
         this.state = { 
-            authedUser: null,
+            authedUser: this.props.defaultAuthedUser,
             toHome: false
         }
     }
@@ -26,21 +26,12 @@ class Login extends Component {
         })
     }
 
-    componentDidUpdate() {
-        const {defaultAuthedUser} = this.props;
-        if(!this.state.authedUser && defaultAuthedUser) {
-            this.setState({
-                authedUser: defaultAuthedUser
-            })
-        }
-    }
-
     render() {
         if(this.state.toHome === true) {
             return <Redirect to='/questions'></Redirect>;
         } 
 
-        const {users, authedUsers, defaultAuthedUser} = this.props;
+        const users = this.props.users || []
 
         return (
             <div className="card text-center login-form">
@@ -54,10 +45,9 @@ class Login extends Component {
                     <div className="h3 text-success">Sign in</div>
 
                     {
-                        defaultAuthedUser && 
-                        <select className="form-select" onChange={(e) => this.handleChangeUser(e.target.value)}>
+                        <select value={this.state.authedUser} className="form-select" onChange={(e) => this.handleChangeUser(e.target.value)}>
                             {
-                                authedUsers.map(authedUser => <option key={authedUser} value={authedUser}>{users[authedUser].name}</option>)
+                                users.map(user => <option key={user.id} value={user.id}>{user.name}</option>)
                             }
                         </select>
                     }
@@ -70,13 +60,12 @@ class Login extends Component {
     }
 }
 
-function mapStateToProps({users}) {
-    const authedUsers = Object.keys(users);
-    const defaultAuthedUser = authedUsers.length ? authedUsers[0] : null;
+function mapStateToProps(state) {
+    const users = Object.values(state.users) || []
+    const defaultAuthedUser = users.length ? users[0].id : '';
 
     return {
         users,
-        authedUsers,
         defaultAuthedUser
     };
 }

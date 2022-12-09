@@ -1,13 +1,14 @@
 import { Component, Fragment } from 'react';
 import {Redirect, Route, Switch} from 'react-router-dom'
-import Login from './Login'
-import Home from './Home'
-import Layout from '../layouts/Layout'
-import NotFound from './NotFound'
 import {handleInitialize} from '../actions/shared'
-import { connect } from 'react-redux';
-import Vote from './QuestionPage';
+import Layout from '../layouts/Layout'
 import AuthenticatedRoute from '../layouts/AuthenticatedRoutes'
+import Login from './Login'
+import HomePage from './HomePage'
+import QuestionPage from './QuestionPage';
+import LeaderBoardPage from './LeaderBoardPage';
+import NotFound from './NotFound'
+import { connect } from 'react-redux';
 
 class App extends Component {
 
@@ -29,10 +30,13 @@ class App extends Component {
               </Route>
               <AuthenticatedRoute>
                 <Route path='/questions' exact>
-                    <Home/>
+                  <HomePage/>
                 </Route>
                 <Route path='/questions/:id'>
-                  <Vote />
+                  <QuestionPage />
+                </Route>
+                <Route path='/leader-board'>
+                  <LeaderBoardPage />
                 </Route>
               </AuthenticatedRoute>
               <Route path='/not-found'>

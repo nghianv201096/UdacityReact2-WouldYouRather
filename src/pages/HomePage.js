@@ -2,7 +2,7 @@ import { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-class Home extends Component {
+class HomePage extends Component {
     
     constructor(props) {
         super(props)
@@ -41,12 +41,10 @@ class Home extends Component {
         const users = this.props.users;
         const currentUser = users[this.props.authedUser]
         const answeredQuestionIds = Object.keys(currentUser.answers) || []
-        console.log(answeredQuestionIds)
         
         let questions = Object.values(this.props.questions) || []
-        console.log(questions)
         questions = questions.filter((question) => this.isDisplay(this.state.showAnswered, answeredQuestionIds, question.id))
-            .sort((a,b) => a.timestamp - b.timestamp)
+            .sort((a,b) =>  b.timestamp - a.timestamp)
 
         return (
             <div className="mb-5 mt-5 home-container">
@@ -94,4 +92,4 @@ function mapStateToProps({questions, users, authedUser}) {
     }
 }
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(HomePage);

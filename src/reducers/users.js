@@ -1,5 +1,5 @@
 import { RECEIVE_USERS } from "../actions/users";
-import {SAVE_QUESTION_ANSWER} from "../actions/questions"
+import {CREATE_QUESTION_ANSWER, SAVE_QUESTION_ANSWER} from "../actions/questions"
 
 export default function user(state = {}, action) {
     console.log('In user reducer', action)
@@ -19,6 +19,15 @@ export default function user(state = {}, action) {
                       [action.qid]: action.answer
                     }
                   }
+            }
+        case CREATE_QUESTION_ANSWER:
+            const question = action.question
+            return {
+                ...state,
+                [question.author]: {
+                    ...state[question.author],
+                    questions: state[question.author].questions.concat(question.id)
+                }
             }
         default:
             return state

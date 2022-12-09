@@ -16,7 +16,6 @@ const NewQuestion = (props) => {
 
         props.dispatch(handleCreateQuestion(question.optionOneText, question.optionTwoText, authedUser, (question) => {
             setToHome(true)
-            console.log('Create question done', question)
         }))
     }
 
@@ -47,7 +46,7 @@ const NewQuestion = (props) => {
                 <div className="input-group mb-2">
                         <input 
                             value={question.optionOneText}
-                            onChange={(e) => handleOptionTextChange('optionOne', e.target.value)}
+                            onChange={(e) => handleOptionTextChange('optionOneText', e.target.value)}
                             type="text" 
                             className="form-control" 
                             aria-describedby="basic-addon1" />
@@ -56,7 +55,7 @@ const NewQuestion = (props) => {
                     <div className="input-group mb-3">
                         <input 
                             value={question.optionTwoText}
-                            onChange={(e) => handleOptionTextChange('optionTwo', e.target.value)} 
+                            onChange={(e) => handleOptionTextChange('optionTwoText', e.target.value)} 
                             type="text" 
                             className="form-control" 
                             aria-describedby="basic-addon1" />

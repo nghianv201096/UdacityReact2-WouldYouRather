@@ -35,7 +35,7 @@ const QuestionDetail = (props) => {
                         <div className="mb-4 ml-2">
                             {
                                 voteInfo.votes.map(vote => (
-                                    <div className="vote-result mb-4">
+                                    <div key={vote.text} className="vote-result mb-4">
                                         {
                                             vote.isVoted && <div className="vote">Your vote</div>
                                         }

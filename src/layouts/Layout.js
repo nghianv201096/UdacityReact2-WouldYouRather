@@ -1,6 +1,7 @@
 import {NavLink } from "react-router-dom";
 import LoadingBar from 'react-redux-loading'
 import { Fragment } from "react";
+import Profile from "../components/commons/Profile";
 
 const Layout = (props) => {
     return (
@@ -20,9 +21,11 @@ const Layout = (props) => {
                                 <NavLink activeClassName='active' className="nav-link" to='/questions/new'>New Question</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink activeClassName='active' className="nav-link" to='/login'>Login</NavLink>
+                                <NavLink activeClassName='active' className="nav-link" to='/leader-board'>Leader Board</NavLink>
                             </li>
                         </ul>
+                        
+                        <Profile></Profile>
                     </div>
                 </nav>
                 
