@@ -62,3 +62,31 @@ code {
   border-radius: 50%;
   object-fit: cover;
 }
+
+/* Question-detail */
+.vote-result {
+  border: 2px solid #07cc7a;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #07cc7a2a;
+  position: relative;
+}
+
+.vote {
+  content: 'your vote';
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  top: -23px;
+  right: -23px;
+  background-color: #c2aa23e3;
+  border: 1px solid red;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+  width: 46px;
+  height: 46px;
+}

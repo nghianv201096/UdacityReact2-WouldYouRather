@@ -6,8 +6,9 @@ import Layout from '../layouts/Layout'
 import NotFound from './NotFound'
 import {handleInitialize} from '../actions/shared'
 import { connect } from 'react-redux';
-import Vote from './Vote';
+import Vote from './QuestionPage';
 import AuthenticatedRoute from '../layouts/AuthenticatedRoutes'
+
 class App extends Component {
 
   componentDidMount() {
