@@ -2,7 +2,6 @@ import { RECEIVE_USERS } from "../actions/users";
 import {CREATE_QUESTION_ANSWER, SAVE_QUESTION_ANSWER} from "../actions/questions"
 
 export default function user(state = {}, action) {
-    console.log('In user reducer', action)
     switch (action.type) {
         case RECEIVE_USERS:
             return {

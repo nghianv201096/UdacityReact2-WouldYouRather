@@ -4,16 +4,24 @@ import ProgressBar from "@ramonak/react-progress-bar";
 
 const QuestionDetail = (props) => {
     const {author, question, authedUser} = props;
+    const voteOptionOne = question.optionOne.votes.length
+    const voteOptionTwo = question.optionTwo.votes.length
+    const total = voteOptionOne + voteOptionTwo
+    const optionOnePercentage = Math.round(voteOptionOne*100/total)
+    const optionTwoPercentage = 100 - optionOnePercentage
     const voteInfo = {
-        total: question.optionOne.votes.length + question.optionTwo.votes.length,
+
+        total,
         votes: [
             {
-                total: question.optionOne.votes.length,
+                total: voteOptionOne,
+                percentage: optionOnePercentage,
                 text: question.optionOne.text,
                 isVoted: question.optionOne.votes.includes(authedUser)
             },
             {
-                total: question.optionTwo.votes.length,
+                total: voteOptionTwo,
+                percentage: optionTwoPercentage,
                 text: question.optionTwo.text,
                 isVoted: question.optionTwo.votes.includes(authedUser)
             }
@@ -43,7 +51,7 @@ const QuestionDetail = (props) => {
                                             Would you rather {vote.text}
                                         </div>
 
-                                        <ProgressBar completed={vote.total*100/voteInfo.total} />
+                                        <ProgressBar completed={vote.percentage} />
 
                                         <div className="h6 text-center">
                                             {vote.total} out of {voteInfo.total} votes

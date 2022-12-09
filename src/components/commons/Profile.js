@@ -10,9 +10,7 @@ const Profile = (props) => {
         dispatch(logoutAction())
         history.push('/login')
     }
-
-    console.log('Debug in Profile', currentUser, props)
-
+    
     return (
         currentUser &&
         <div style={{display: 'flex'}}>

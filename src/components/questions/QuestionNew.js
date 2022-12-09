@@ -27,7 +27,6 @@ const NewQuestion = (props) => {
     }
 
     if(toHome) {
-        console.log('Redirect to home')
         return <Redirect to='/'></Redirect>
     }
 

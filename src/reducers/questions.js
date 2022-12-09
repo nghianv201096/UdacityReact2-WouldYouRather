@@ -1,7 +1,6 @@
 import { CREATE_QUESTION_ANSWER, RECEIVE_QUESTIONS, SAVE_QUESTION_ANSWER } from "../actions/questions";
 
 export default function questions(state = {}, action){
-    console.log('In question reducer', action)
     switch (action.type) {
         case RECEIVE_QUESTIONS:
             return {

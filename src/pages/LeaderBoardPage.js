@@ -1,8 +1,6 @@
 import { connect } from "react-redux"
 
 const LeaderBoardPage = (props) => {
-    console.log('start leader board', props)
-
     const userScores = Object.values(props.users)
         .map(user => {
             const anweredQuestionCount = Object.keys(user.answers).length
@@ -16,8 +14,6 @@ const LeaderBoardPage = (props) => {
                 total: anweredQuestionCount + createdQuestionCount
             }
         }).sort((u1, u2) => u2.total - u1.total)
-    
-    console.log('user scores', userScores)
 
     return (
         <div className="mb-5 pb-5 mt-5 home-container">
