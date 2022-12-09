@@ -22,13 +22,13 @@ class App extends Component {
       <Fragment>
         <Layout>
           <Switch>
-              <Route path='/' exact>
-                <Redirect to='/questions'></Redirect>
-              </Route>
               <Route path='/login'>
                 <Login />
               </Route>
               <AuthenticatedRoute>
+                <Route path='/' exact>
+                  <Redirect to='/questions'></Redirect>
+                </Route>
                 <Route path='/questions' exact>
                   <HomePage/>
                 </Route>
@@ -38,13 +38,13 @@ class App extends Component {
                 <Route path='/leader-board'>
                   <LeaderBoardPage />
                 </Route>
+                <Route path='/not-found'>
+                  <NotFound />
+                </Route>
+                <Route path='*' >
+                  <NotFound />
+                </Route>
               </AuthenticatedRoute>
-              <Route path='/not-found'>
-                <NotFound />
-              </Route>
-              <Route path='*' >
-                <NotFound />
-              </Route>
             </Switch>
         </Layout>
       </Fragment>
