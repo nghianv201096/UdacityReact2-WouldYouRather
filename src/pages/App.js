@@ -9,6 +9,7 @@ import QuestionPage from './QuestionPage';
 import LeaderBoardPage from './LeaderBoardPage';
 import NotFound from './NotFound'
 import { connect } from 'react-redux';
+import QuestionNew from '../components/questions/QuestionNew';
 
 class App extends Component {
 
@@ -27,24 +28,24 @@ class App extends Component {
               </Route>
               <AuthenticatedRoute>
                 <Route path='/' exact>
-                  <Redirect to='/questions'></Redirect>
-                </Route>
-                <Route path='/questions' exact>
                   <HomePage/>
                 </Route>
                 <Route path='/questions/:id'>
                   <QuestionPage />
                 </Route>
-                <Route path='/leader-board'>
+                <Route path='/add'>
+                  <QuestionNew />
+                </Route>
+                <Route path='/leaderboard'>
                   <LeaderBoardPage />
                 </Route>
-                <Route path='/not-found'>
-                  <NotFound />
-                </Route>
-                <Route path='*' >
-                  <NotFound />
-                </Route>
               </AuthenticatedRoute>
+              <Route path='/not-found'>
+                <NotFound />
+              </Route>
+              <Route path='*' >
+                <NotFound />
+              </Route>
             </Switch>
         </Layout>
       </Fragment>
