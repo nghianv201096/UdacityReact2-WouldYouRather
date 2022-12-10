@@ -116,3 +116,74 @@ code {
   width: 80px;
   height: 80px;
 }
+
+/* Form */
+.nnh-form-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.nnh-form {
+  border: 3px solid #576ACD;
+  padding: 0;
+  width: 600px;
+  font-size: 1rem;
+}
+
+.nnh-form > .nnh-form-header {
+  background-color: #576ACD;
+  color: #ffffff;
+  font-size: 1.8rem;
+}
+
+.nnh-form > .nnh-form-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nnh-form > .nnh-form-footer > .nnh-btn {
+  width: 48%;
+  border: 2px solid #576ACD;
+  border-radius: 7px;
+  background-color: #ffffff;
+  color: #576ACD;
+  padding: 0.4rem 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nnh-form > .nnh-form-footer > .nnh-btn:hover {
+  opacity: 1;
+  background-color: #576ACD;
+  color: #ffffff;
+}
+
+.nnh-form > .nnh-form-header, 
+  .nnh-form > .nnh-form-body,
+  .nnh-form > .nnh-form-footer {
+    padding: 1rem;
+  }
+
+.nnh-form-row {
+  padding-bottom: 1rem;
+}
+
+.nnh-form-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nnh-form-control > input {
+  width: 100%;
+  border: 1px solid #777070;
+  font-size: 1.2rem;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+.nnh-form-control > input::focus {
+  border: 1px solid #576ACD;
+}
